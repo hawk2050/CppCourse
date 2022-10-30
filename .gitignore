@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+.codelite/
+.ctagsd/
+Makefile
+build-Debug/

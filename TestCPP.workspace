@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="TestCPP" Database="" Version="10000">
-  <Project Name="MatrixOperator" Path="MatrixOperator/MatrixOperator.project" Active="Yes"/>
+  <Project Name="MatrixOperator" Path="MatrixOperator/MatrixOperator.project" Active="No"/>
+  <Project Name="MatrixOperator2" Path="MatrixOperator2/MatrixOperator2.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug">
       <Environment/>
       <Project Name="MatrixOperator" ConfigName="Debug"/>
+      <Project Name="MatrixOperator2" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release">
       <Environment/>
       <Project Name="MatrixOperator" ConfigName="Release"/>
+      <Project Name="MatrixOperator2" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
