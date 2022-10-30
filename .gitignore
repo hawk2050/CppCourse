@@ -31,6 +31,8 @@
 *.out
 *.app
 
+*.mk
+compile_flags.txt
 .codelite/
 .ctagsd/
 Makefile

@@ -155,6 +155,8 @@ public:
         return *this;
     }
     
+    /*Overload the monadic operator + */
+    
     /*This externally defined function needs to be declared as a friend function within the class*/
    friend std::ostream& operator<<(std::ostream& os, const Matrix& m); 
 
