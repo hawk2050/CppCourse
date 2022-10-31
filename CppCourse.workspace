@@ -17,7 +17,8 @@
   <Project Name="MatrixThrow2" Path="MatrixThrow2/MatrixThrow2.project" Active="No"/>
   <Project Name="MatrixThrow3" Path="MatrixThrow3/MatrixThrow3.project" Active="No"/>
   <Project Name="MatrixAssert" Path="MatrixAssert/MatrixAssert.project" Active="No"/>
-  <Project Name="TemplatesSquare" Path="TemplatesSquare/TemplatesSquare.project" Active="Yes"/>
+  <Project Name="TemplatesSquare" Path="TemplatesSquare/TemplatesSquare.project" Active="No"/>
+  <Project Name="MatrixTemplate" Path="MatrixTemplate/MatrixTemplate.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -39,6 +40,7 @@
       <Project Name="MatrixThrow3" ConfigName="Debug"/>
       <Project Name="MatrixAssert" ConfigName="Debug"/>
       <Project Name="TemplatesSquare" ConfigName="Debug"/>
+      <Project Name="MatrixTemplate" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -60,6 +62,7 @@
       <Project Name="MatrixThrow3" ConfigName="Release"/>
       <Project Name="MatrixAssert" ConfigName="Release"/>
       <Project Name="TemplatesSquare" ConfigName="Release"/>
+      <Project Name="MatrixTemplate" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
