@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="CppCourse" Database="" Version="10000">
+  <Project Name="DigitClass" Path="DigitClass/DigitClass.project" Active="No"/>
+  <Project Name="MatrixOperator2" Path="MatrixOperator2/MatrixOperator2.project" Active="No"/>
+  <Project Name="MatrixOperator3" Path="MatrixOperator3/MatrixOperator3.project" Active="No"/>
+  <Project Name="MatrixParenthesis" Path="MatrixParenthesis/MatrixParenthesis.project" Active="No"/>
+  <Project Name="stringName" Path="stringName/stringName.project" Active="No"/>
+  <Project Name="StringInitial" Path="StringInitial/StringInitial.project" Active="No"/>
+  <Project Name="StringFirstLast" Path="StringFirstLast/StringFirstLast.project" Active="No"/>
+  <Project Name="StringNamesArray" Path="StringNamesArray/StringNamesArray.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="DigitClass" ConfigName="Debug"/>
+      <Project Name="MatrixOperator2" ConfigName="Debug"/>
+      <Project Name="MatrixOperator3" ConfigName="Debug"/>
+      <Project Name="MatrixParenthesis" ConfigName="Debug"/>
+      <Project Name="stringName" ConfigName="Debug"/>
+      <Project Name="StringInitial" ConfigName="Debug"/>
+      <Project Name="StringFirstLast" ConfigName="Debug"/>
+      <Project Name="StringNamesArray" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="DigitClass" ConfigName="Release"/>
+      <Project Name="MatrixOperator2" ConfigName="Release"/>
+      <Project Name="MatrixOperator3" ConfigName="Release"/>
+      <Project Name="MatrixParenthesis" ConfigName="Release"/>
+      <Project Name="stringName" ConfigName="Release"/>
+      <Project Name="StringInitial" ConfigName="Release"/>
+      <Project Name="StringFirstLast" ConfigName="Release"/>
+      <Project Name="StringNamesArray" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
