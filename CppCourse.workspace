@@ -7,7 +7,14 @@
   <Project Name="stringName" Path="stringName/stringName.project" Active="No"/>
   <Project Name="StringInitial" Path="StringInitial/StringInitial.project" Active="No"/>
   <Project Name="StringFirstLast" Path="StringFirstLast/StringFirstLast.project" Active="No"/>
-  <Project Name="StringNamesArray" Path="StringNamesArray/StringNamesArray.project" Active="Yes"/>
+  <Project Name="StringNamesArray" Path="StringNamesArray/StringNamesArray.project" Active="No"/>
+  <Project Name="MatrixStdArray" Path="MatrixStdArray/MatrixStdArray.project" Active="No"/>
+  <Project Name="MatrixSave" Path="MatrixSave/MatrixSave.project" Active="No"/>
+  <Project Name="MatrixObject" Path="MatrixObject/MatrixObject.project" Active="No"/>
+  <Project Name="MatrixObject2" Path="MatrixObject2/MatrixObject2.project" Active="No"/>
+  <Project Name="MatrixObject3" Path="MatrixObject3/MatrixObject3.project" Active="No"/>
+  <Project Name="MatrixThrow1" Path="MatrixThrow1/MatrixThrow1.project" Active="No"/>
+  <Project Name="MatrixThrow2" Path="MatrixThrow2/MatrixThrow2.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
@@ -19,6 +26,13 @@
       <Project Name="StringInitial" ConfigName="Debug"/>
       <Project Name="StringFirstLast" ConfigName="Debug"/>
       <Project Name="StringNamesArray" ConfigName="Debug"/>
+      <Project Name="MatrixStdArray" ConfigName="Debug"/>
+      <Project Name="MatrixSave" ConfigName="Debug"/>
+      <Project Name="MatrixObject" ConfigName="Debug"/>
+      <Project Name="MatrixObject2" ConfigName="Debug"/>
+      <Project Name="MatrixObject3" ConfigName="Debug"/>
+      <Project Name="MatrixThrow1" ConfigName="Debug"/>
+      <Project Name="MatrixThrow2" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
@@ -30,6 +44,13 @@
       <Project Name="StringInitial" ConfigName="Release"/>
       <Project Name="StringFirstLast" ConfigName="Release"/>
       <Project Name="StringNamesArray" ConfigName="Release"/>
+      <Project Name="MatrixStdArray" ConfigName="Release"/>
+      <Project Name="MatrixSave" ConfigName="Release"/>
+      <Project Name="MatrixObject" ConfigName="Release"/>
+      <Project Name="MatrixObject2" ConfigName="Release"/>
+      <Project Name="MatrixObject3" ConfigName="Release"/>
+      <Project Name="MatrixThrow1" ConfigName="Release"/>
+      <Project Name="MatrixThrow2" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
