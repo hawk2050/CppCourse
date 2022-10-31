@@ -5,12 +5,14 @@
 #include <iostream>
 #include <ostream>
 #include <array>
+#include <cassert>
 
 #include "matrix.h"
 
 
 Matrix::Matrix()
 {
+    assert(m_count >= 0);
     ++m_count; //Keep track of the number of instances of this class that have been instantiated.
     m_print_count = 0;
     //std::cout << "Creating instance " << m_count << std::endl;
@@ -19,6 +21,7 @@ Matrix::Matrix()
 
 Matrix::Matrix(int initial_value)
 {
+    assert(m_count >= 0);
     /*Keep track of the number of instances of this class that have been instantiated. Have to
      * do this increment in every constructor type*/
     ++m_count;
@@ -30,6 +33,7 @@ Matrix::Matrix(int initial_value)
 /*Copy constructor*/
 Matrix::Matrix(const Matrix& matrix)
 {
+    assert(m_count >= 0);
     ++m_count;
     m_print_count = 0;
     //std::cout << "Creating via copy , instance " << m_count << std::endl;
@@ -216,7 +220,7 @@ ostream& operator<<(ostream& os, const Matrix& m)
     return os;
 }
 
-
+/*Initialise static class variable*/
 int Matrix::m_count = 0;
 int main()
 {
