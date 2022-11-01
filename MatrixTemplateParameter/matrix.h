@@ -26,7 +26,7 @@ public:
  * create matrix of things other than ints
  * A template is not code so should be placed in  header.
  * */
-template <class T>
+template <class T, unsigned ROWS>
 class Matrix : public Object
 {
 public:
@@ -75,7 +75,7 @@ private:
     /*Exception error codes*/
     static const int ARRAY_BOUND_ERR = 6;
     static int m_count; //keep track of number of instances of this class
-    array<array<T,MAX_COL>,MAX_ROW> m_matrix;
+    array<array<T,MAX_COL>,ROWS> m_matrix;
     mutable unsigned m_print_count; //this can be updated even for const Matrix objects
     
 };

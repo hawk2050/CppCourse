@@ -1,7 +1,8 @@
 #include <string>
 #include <exception>
 
-
+namespace utils
+{
 
 class Object
 {
@@ -79,3 +80,5 @@ private:
     mutable unsigned m_print_count; //this can be updated even for const Matrix objects
     
 };
+
+} //end namespace utils

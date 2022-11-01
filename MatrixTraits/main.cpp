@@ -1,0 +1,263 @@
+/*
+ *	MatrixMain1.cpp
+ *		Program to be completed by students.
+ */
+#include <iostream>
+#include <ostream>
+#include <array>
+#include <cassert>
+#include <type_traits>
+
+using namespace std;
+/*Need a forward declaration for the friend function which has to be defined before
+ * the Matrix class is defined, which happens in the header, so must go before the header
+ * */
+template <class T>
+class Matrix;
+
+template <class T>
+ostream& operator<<(ostream& os, const Matrix<T>& m)
+{
+    ++m.m_print_count;
+    os << "[" ;
+    for(size_t j=0; j< Matrix<T>::MAX_ROW; j++)
+    {
+        os << "[";
+        size_t k;
+        for(k=0; k < Matrix<T>::MAX_COL-1; k++)
+        {
+            os << m.m_matrix[j][k] << ", ";
+        }
+        os << m.m_matrix[j][k] << "]";
+    }
+    os << "]" << std::endl;
+    //os << "printed " << m.m_print_count << " times" << std::endl << std::endl;
+    return os;
+}
+
+#include "matrix.h"
+
+template <class T>
+Matrix<T>::Matrix()
+{
+    assert(m_count >= 0);
+    ++m_count; //Keep track of the number of instances of this class that have been instantiated.
+    m_print_count = 0;
+    //std::cout << "Creating instance " << m_count << std::endl;
+    empty();
+}
+
+template <class T>
+Matrix<T>::Matrix(T initial_value)
+{
+    assert(m_count >= 0);
+    /*Keep track of the number of instances of this class that have been instantiated. Have to
+     * do this increment in every constructor type*/
+    ++m_count;
+    m_print_count = 0;
+    //std::cout << "Creating with value " << initial_value << " instance " << m_count << std::endl;
+    init(initial_value);
+}
+
+/*Copy constructor*/
+template <class T>
+Matrix<T>::Matrix(const Matrix& matrix)
+{
+    assert(m_count >= 0);
+    ++m_count;
+    m_print_count = 0;
+    //std::cout << "Creating via copy , instance " << m_count << std::endl;
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            this->m_matrix[j][k] = matrix.m_matrix[j][k];
+        }
+    }
+    
+}
+
+template <class T>
+string Matrix<T>::nameOf()
+{
+    string s;
+    s = "Matrix";
+    return s;
+}
+
+/*Assign values to each element of the fixed sized matrix*/
+template <class T>
+void Matrix<T>::setElement(unsigned row, unsigned col, T value)
+{
+    /*Range checking is automatic with std::array type*/
+    MatrixBoundsException arrayExcept;
+    if(row >= MAX_ROW or col >=MAX_COL)
+    {
+        throw arrayExcept;
+    }
+    m_matrix[row][col] = value;
+} 
+
+template <class T>
+void Matrix<T>::init(T val)
+{
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            m_matrix[j][k] = val;
+        }
+    }
+}
+
+/*Zero the fixed size matrix*/
+template <class T>
+void Matrix<T>::empty()
+{
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            m_matrix[j][k] = 0;
+        }
+    }
+}
+
+template <class T>
+bool Matrix<T>::operator==(const Matrix& othermatrix)
+{
+   bool result = true;
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            if (this->m_matrix[j][k] != othermatrix.m_matrix[j][k])
+            {
+                result = false;
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+template <class T>
+bool Matrix<T>::operator!=(const Matrix& othermatrix)
+{
+    return (!(*this == othermatrix));
+}
+
+template <class T>
+Matrix<T> Matrix<T>::operator+ (const Matrix& othermatrix) const
+{
+    Matrix result;
+    
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            result.m_matrix[j][k] = this->m_matrix[j][k] + othermatrix.m_matrix[j][k];
+        }
+    }
+    
+    return result;
+}
+
+/*Overload the subtraction operator for the Matrix class*/
+template <class T>
+Matrix<T> Matrix<T>::operator-(const Matrix& othermatrix) const
+{
+    Matrix result;
+    
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            result.m_matrix[j][k] = this->m_matrix[j][k] - othermatrix.m_matrix[j][k];
+        }
+    }
+    
+    return result;
+}
+
+/*Overload the in-place operator += (Dyadic, or binary) */
+template <class T>
+Matrix<T>& Matrix<T>::operator+=(const Matrix& othermatrix)
+{
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            this->m_matrix[j][k] = this->m_matrix[j][k] + othermatrix.m_matrix[j][k];
+        }
+    }
+    return *this;
+}
+
+/*Overload the monadic operator + */
+/*TODO*/
+
+/*Overload the operator [],
+ * treating rows and columns as single long row*/
+template <class T>
+T Matrix<T>::operator[](unsigned index) const
+{
+    unsigned temp = 0;
+    for(size_t j=0; j< MAX_ROW; j++)
+    {
+        for(size_t k=0; k< MAX_COL; k++)
+        {
+            
+            if(temp++ == index)
+            {
+                return m_matrix[j][k];
+            }
+        }
+    }
+    
+    return 0;
+}
+
+
+/*Useful for cleaner assignment of values to the matrix object. Returning a reference to the int element
+ * to allow something to be assigned to it*/
+template <class T>
+T& Matrix<T>::operator()(unsigned row, unsigned col) 
+{
+    return m_matrix.at(row).at(col);
+}
+
+template <class T>
+const T& Matrix<T>::operator()(unsigned row, unsigned col) const
+{
+    if(row > (MAX_ROW-1) or col > (MAX_COL-1))
+    {
+        cout << "Exceeds matrix dimension, setting to MAX_ROW, MAX_COL" << std::endl;
+        row = MAX_ROW;
+        col = MAX_COL;
+    }
+    return m_matrix.at(row).at(col);
+}
+
+
+/*Initialise static class variable*/
+template <class T>
+int Matrix<T>::m_count = 0;
+int main()
+{
+    
+	Matrix<int> m1;
+    Matrix<double> m2;
+    
+    m1(0,0) = 10;
+    m1(0,1) = 20;
+    
+    m2(0,0) = 23.5;
+    m2(1,2) = 36.3;
+    
+    cout << "std::is_class<Matrix>::value = " << std::is_class<Matrix<int>>::value << '\n';
+    cout << "std::is_constructible<Matrix>::value = " << std::is_constructible<Matrix<int>>::value << '\n';
+    cout << "std::is_polymorphic<Matrix>::value = " << std::is_polymorphic<Matrix<int>>::value << '\n';
+    
+	return 0;
+}

@@ -26,6 +26,8 @@ public:
  * create matrix of things other than ints
  * A template is not code so should be placed in  header.
  * */
+ 
+//using MatrixRow = array<T
 template <class T>
 class Matrix : public Object
 {

@@ -32,6 +32,7 @@ class Matrix : public Object
 public:
 /*No argument constructor*/
     Matrix();
+    Matrix(const std::initializer_list<int> &v);
     /*Single value argument for initialisation*/
     explicit Matrix(T initial_value);
     /*Copy constructor*/
@@ -72,8 +73,6 @@ private:
     static const unsigned MAX_ROW = 2;
     static const unsigned MAX_COL = 3;
     
-    /*Exception error codes*/
-    static const int ARRAY_BOUND_ERR = 6;
     static int m_count; //keep track of number of instances of this class
     array<array<T,MAX_COL>,MAX_ROW> m_matrix;
     mutable unsigned m_print_count; //this can be updated even for const Matrix objects

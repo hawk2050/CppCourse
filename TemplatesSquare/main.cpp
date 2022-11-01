@@ -4,6 +4,9 @@
  */
 #include <iostream>
 
+namespace utils
+{
+
 template <class T>
 T square(T num)
 {
@@ -44,6 +47,12 @@ int sign(T num)
     return temp;
     
 }
+
+} //namespace utils
+
+using utils::sign;
+using utils::abs;
+using utils::square;
 
 int main()
 {
