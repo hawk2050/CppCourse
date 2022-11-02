@@ -15,7 +15,7 @@ public:
     }
     void trace()
     {
-        cout << "Here";
+        cout << "Here\n";
     }
     
     /*To be overridden by derived classes, so mark this as a virtual function to 
@@ -49,6 +49,7 @@ public:
     }
     string nameOf();
     void setElement(unsigned row, unsigned col, T value = 0);
+    T getElement(unsigned row, unsigned col) const;
     void init(T val);
     /*Zero the fixed size matrix*/
     void empty();
@@ -60,18 +61,34 @@ public:
     public:
         virtual const char* what() const noexcept
         {
-            return "Array bounds exception" ;
+            return "Array bounds exception\n" ;
         }
+    };
+    
+    class MatrixDimensionsDiffer : public MatrixBoundsException
+    {
+      public:
+        virtual const char* what() const noexcept
+        {
+            return "Matrix Dimensions differ exception\n" ;
+        }  
     };
     
     /*Overloading operators*/
     template <unsigned ROWB, unsigned COLB>
-    bool operator==(const Matrix<T,ROWB, COLB>& othermatrix);
+    bool operator==(const Matrix<T,ROWB, COLB>& othermatrix) const;
     
-    bool operator!=(const Matrix& othermatrix);
-    Matrix operator+(const Matrix& othermatrix) const;
-    Matrix operator-(const Matrix& othermatrix) const;
-    Matrix& operator+=(const Matrix& othermatrix);
+    template <unsigned ROWB, unsigned COLB>
+    bool operator!=(const Matrix<T,ROWB, COLB>& othermatrix) const;
+    
+    template <unsigned ROWB, unsigned COLB>
+    Matrix operator+(const Matrix<T,ROWB, COLB>& othermatrix) const;
+    
+    template <unsigned ROWB, unsigned COLB>
+    Matrix operator-(const Matrix<T,ROWB, COLB>& othermatrix) const;
+    
+    template <unsigned ROWB, unsigned COLB>
+    Matrix& operator+=(const Matrix<T,ROWB, COLB>& othermatrix) const;
     T operator[](unsigned index) const;
     T& operator()(unsigned row, unsigned col) ;
     const T& operator()(unsigned row, unsigned col) const;

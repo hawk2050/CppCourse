@@ -130,6 +130,18 @@ void Matrix<T,ROW,COL>::setElement(unsigned row, unsigned col, T value)
 } 
 
 template <class T, unsigned ROW, unsigned COL>
+T Matrix<T,ROW,COL>::getElement(unsigned row, unsigned col) const
+{
+    /*Range checking is automatic with std::array type*/
+    MatrixBoundsException arrayExcept;
+    if(row >= ROW or col >=COL)
+    {
+        throw arrayExcept;
+    }
+    return m_matrix[row][col];
+}
+
+template <class T, unsigned ROW, unsigned COL>
 void Matrix<T,ROW,COL>::init(T val)
 {
     for(size_t j=0; j< ROW; j++)
@@ -156,7 +168,7 @@ void Matrix<T,ROW,COL>::empty()
 
 template <class T, unsigned ROW, unsigned COL>
 template <unsigned ROWB, unsigned COLB>
-bool Matrix<T,ROW,COL>::operator==(const Matrix<T, ROWB, COLB>& othermatrix)
+bool Matrix<T,ROW,COL>::operator==(const Matrix<T, ROWB, COLB>& othermatrix) const
 {
     bool result = true;
     if( (ROW != ROWB) || (COL !=COLB) )
@@ -167,7 +179,7 @@ bool Matrix<T,ROW,COL>::operator==(const Matrix<T, ROWB, COLB>& othermatrix)
     {
         for(size_t k=0; k< COL; k++)
         {
-            if (this->m_matrix[j][k] != othermatrix.m_matrix[j][k])
+            if (this->m_matrix[j][k] != othermatrix.getElement(j,k))
             {
                 result = false;
                 break;
@@ -178,15 +190,24 @@ bool Matrix<T,ROW,COL>::operator==(const Matrix<T, ROWB, COLB>& othermatrix)
 }
 
 template <class T, unsigned ROW, unsigned COL>
-bool Matrix<T,ROW,COL>::operator!=(const Matrix& othermatrix)
+template <unsigned ROWB, unsigned COLB>
+bool Matrix<T,ROW,COL>::operator!=(const Matrix<T, ROWB, COLB>& othermatrix) const
 {
     return (!(*this == othermatrix));
 }
 
 template <class T, unsigned ROW, unsigned COL>
-Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator+ (const Matrix& othermatrix) const
+template <unsigned ROWB, unsigned COLB>
+Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator+ (const Matrix<T, ROWB, COLB>& othermatrix) const
 {
-    Matrix result;
+    Matrix<T,ROW,COL> result;
+    
+    /*Range checking is automatic with std::array type*/
+    MatrixDimensionsDiffer arrayExcept;
+    if(ROW != ROWB or COL !=COLB)
+    {
+        throw arrayExcept;
+    }
     
     for(size_t j=0; j< ROW; j++)
     {
@@ -201,9 +222,16 @@ Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator+ (const Matrix& othermatrix) const
 
 /*Overload the subtraction operator for the Matrix class*/
 template <class T, unsigned ROW, unsigned COL>
-Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator-(const Matrix& othermatrix) const
+template <unsigned ROWB, unsigned COLB>
+Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator-(const Matrix<T, ROWB, COLB>& othermatrix) const
 {
     Matrix result;
+    /*Range checking is automatic with std::array type*/
+    MatrixDimensionsDiffer arrayExcept;
+    if(ROW != ROWB or COL !=COLB)
+    {
+        throw arrayExcept;
+    }
     
     for(size_t j=0; j< ROW; j++)
     {
@@ -218,8 +246,16 @@ Matrix<T,ROW,COL> Matrix<T,ROW,COL>::operator-(const Matrix& othermatrix) const
 
 /*Overload the in-place operator += (Dyadic, or binary) */
 template <class T, unsigned ROW, unsigned COL>
-Matrix<T,ROW,COL>& Matrix<T,ROW,COL>::operator+=(const Matrix& othermatrix)
+template <unsigned ROWB, unsigned COLB>
+Matrix<T,ROW,COL>& Matrix<T,ROW,COL>::operator+=(const Matrix<T, ROWB, COLB>& othermatrix) const
 {
+    /*Range checking is automatic with std::array type*/
+    MatrixDimensionsDiffer arrayExcept;
+    if(ROW != ROWB or COL !=COLB)
+    {
+        throw arrayExcept;
+    }
+    
     for(size_t j=0; j< ROW; j++)
     {
         for(size_t k=0; k< COL; k++)
@@ -291,16 +327,23 @@ int main()
     
     Matrix<double,3,3> m2{{2.5,3.5,4.6},{4.2,5.3,6.4},{2.1,6.7,9.8}};
     cout << "m2 (double matrix) is : " << m2;
+    Matrix<double,2,3> m3{{2.5,3.5,4.6},{4.2,5.3,6.4}};
     
     try
     {
-        m1.setElement(3,4, 24); // Attempting to set an element outside the bounds of the array
-        m2.setElement(3,4,56.4);
+        if(m3 != m2)
+        {
+            cout << "m3 is not equal to m2" << '\n';
+        }
+       // m1.setElement(3,4, 24); // Attempting to set an element outside the bounds of the array
+       // m2.setElement(3,4,56.4);
+        
     }
     catch(exception& e) //std library throws exceptions of this type
     {
         cout << "Exception: " << e.what() << endl;
     }
+    
     
     
     
