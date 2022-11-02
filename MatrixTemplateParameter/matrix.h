@@ -1,6 +1,10 @@
 #include <string>
 #include <exception>
+#include <initializer_list>
 
+/*New use of the 'using' keyword to replace typedef*/
+//template <class T>
+//using iListList = std::initializer_list<std::initializer_list<T>>;
 
 
 class Object
@@ -26,12 +30,15 @@ public:
  * create matrix of things other than ints
  * A template is not code so should be placed in  header.
  * */
-template <class T, unsigned ROWS>
+template <class T, unsigned ROW, unsigned COL>
 class Matrix : public Object
 {
 public:
 /*No argument constructor*/
     Matrix();
+    /*Constructor that takes an initializer_list*/
+    Matrix(const std::initializer_list<std::initializer_list<T>>& listlist);
+    //Matrix(const iListList& listlist);
     /*Single value argument for initialisation*/
     explicit Matrix(T initial_value);
     /*Copy constructor*/
@@ -58,7 +65,9 @@ public:
     };
     
     /*Overloading operators*/
-    bool operator==(const Matrix& othermatrix);
+    template <unsigned ROWB, unsigned COLB>
+    bool operator==(const Matrix<T,ROWB, COLB>& othermatrix);
+    
     bool operator!=(const Matrix& othermatrix);
     Matrix operator+(const Matrix& othermatrix) const;
     Matrix operator-(const Matrix& othermatrix) const;
@@ -67,15 +76,14 @@ public:
     T& operator()(unsigned row, unsigned col) ;
     const T& operator()(unsigned row, unsigned col) const;
     
-    friend ostream& operator<< <T>(ostream& os, const Matrix<T>& m); 
+    friend ostream& operator<< <T,ROW,COL>(ostream& os, const Matrix<T,ROW,COL>& m); 
 private:
-    static const unsigned MAX_ROW = 2;
-    static const unsigned MAX_COL = 3;
-    
-    /*Exception error codes*/
-    static const int ARRAY_BOUND_ERR = 6;
+    const unsigned MAX_ROW;
+    const unsigned MAX_COL;
     static int m_count; //keep track of number of instances of this class
-    array<array<T,MAX_COL>,ROWS> m_matrix;
+    
+    unsigned init_rows, init_cols;
+    array<array<T,COL>,ROW> m_matrix;
     mutable unsigned m_print_count; //this can be updated even for const Matrix objects
     
 };

@@ -19,15 +19,16 @@
   <Project Name="MatrixAssert" Path="MatrixAssert/MatrixAssert.project" Active="No"/>
   <Project Name="TemplatesSquare" Path="TemplatesSquare/TemplatesSquare.project" Active="No"/>
   <Project Name="MatrixTemplate" Path="MatrixTemplate/MatrixTemplate.project" Active="No"/>
-  <Project Name="MatrixTemplateParameter" Path="MatrixTemplateParameter/MatrixTemplateParameter.project" Active="No"/>
+  <Project Name="MatrixTemplateParameter" Path="MatrixTemplateParameter/MatrixTemplateParameter.project" Active="Yes"/>
   <Project Name="MatrixNamespace" Path="MatrixNamespace/MatrixNamespace.project" Active="No"/>
   <Project Name="Casting" Path="Casting/Casting.project" Active="No"/>
   <Project Name="Typeid" Path="Typeid/Typeid.project" Active="No"/>
   <Project Name="MatrixTraits" Path="MatrixTraits/MatrixTraits.project" Active="No"/>
   <Project Name="MatrixNewSyntax" Path="MatrixNewSyntax/MatrixNewSyntax.project" Active="No"/>
-  <Project Name="MatrixCpp11" Path="MatrixAutoType/MatrixAutoType.project" Active="Yes"/>
+  <Project Name="MatrixCpp11" Path="MatrixAutoType/MatrixAutoType.project" Active="No"/>
+  <Project Name="MatrixInitializerList" Path="MatrixInitializerList/MatrixInitializerList.project" Active="No"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug">
       <Environment/>
       <Project Name="DigitClass" ConfigName="Debug"/>
       <Project Name="MatrixOperator2" ConfigName="Debug"/>
@@ -55,8 +56,9 @@
       <Project Name="MatrixTraits" ConfigName="Debug"/>
       <Project Name="MatrixNewSyntax" ConfigName="Debug"/>
       <Project Name="MatrixCpp11" ConfigName="Debug"/>
+      <Project Name="MatrixInitializerList" ConfigName="Debug"/>
     </WorkspaceConfiguration>
-    <WorkspaceConfiguration Name="Release" Selected="yes">
+    <WorkspaceConfiguration Name="Release">
       <Environment/>
       <Project Name="DigitClass" ConfigName="Release"/>
       <Project Name="MatrixOperator2" ConfigName="Release"/>
@@ -84,6 +86,7 @@
       <Project Name="MatrixTraits" ConfigName="Release"/>
       <Project Name="MatrixNewSyntax" ConfigName="Release"/>
       <Project Name="MatrixCpp11" ConfigName="Release"/>
+      <Project Name="MatrixInitializerList" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

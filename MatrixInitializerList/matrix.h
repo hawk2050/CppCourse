@@ -2,9 +2,10 @@
 #include <exception>
 #include <initializer_list>
 
+using namespace std;
+
 /*New use of the 'using' keyword to replace typedef*/
-//template <class T>
-//using iListList = std::initializer_list<std::initializer_list<T>>;
+using iListList = std::initializer_list<std::initializer_list<int>>;
 
 class Object
 {
@@ -17,7 +18,7 @@ public:
         cout << "Here";
     }
     
-    /*To be overridden by derived classes, so mark this as a virtual function to 
+    /*To be overriddeen by derived classes, so mark this as a virtual function to 
      * ensure correct method resolution
      */
     virtual string nameOf() = 0;
@@ -25,28 +26,26 @@ public:
 };
 
 
-/*Now turn the Matrix class into a templated class so we can
- * create matrix of things other than ints
- * A template is not code so should be placed in  header.
- * */
-template <class T>
+
+
 class Matrix : public Object
 {
 public:
-/*No argument constructor*/
     Matrix();
-    Matrix(const std::initializer_list<std::initializer_list<T>>& listlist);
-    /*Single value argument for initialisation*/
-    explicit Matrix(T initial_value);
-    /*Copy constructor*/
+    /*Introduce a new constructor that takes an initializer_list, actually for a 2-D matrix
+     * it will be an initializer_list of initializer_lists
+     * */
+    Matrix(const iListList& listlist);
+    
+    explicit Matrix(int initial_value);
     Matrix(const Matrix& matrix);
     ~Matrix()
     {
         --m_count;
     }
     string nameOf();
-    void setElement(unsigned row, unsigned col, T value = 0);
-    void init(T val);
+    void setElement(unsigned row, unsigned col, int value = 0);
+    void init(int val);
     /*Zero the fixed size matrix*/
     void empty();
     
@@ -67,18 +66,22 @@ public:
     Matrix operator+(const Matrix& othermatrix) const;
     Matrix operator-(const Matrix& othermatrix) const;
     Matrix& operator+=(const Matrix& othermatrix);
-    T operator[](unsigned index) const;
-    T& operator()(unsigned row, unsigned col) ;
-    const T& operator()(unsigned row, unsigned col) const;
+    int operator[](unsigned index) const;
+    int& operator()(unsigned row, unsigned col) ;
+    const int& operator()(unsigned row, unsigned col) const;
     
-    friend ostream& operator<< <T>(ostream& os, const Matrix<T>& m); 
+    friend ostream& operator<<(ostream& os, const Matrix& m); 
 private:
     static const unsigned MAX_ROW = 2;
     static const unsigned MAX_COL = 3;
     static int m_count; //keep track of number of instances of this class
     
     unsigned init_rows, init_cols;
-    array<array<T,MAX_COL>,MAX_ROW> m_matrix;
+    
+    /*Exception error codes*/
+    //static const int ARRAY_BOUND_ERR = 6;
+    
+    array<array<int,MAX_COL>,MAX_ROW> m_matrix;
     mutable unsigned m_print_count; //this can be updated even for const Matrix objects
     
 };
