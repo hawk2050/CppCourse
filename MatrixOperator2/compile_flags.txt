@@ -1,4 +1,4 @@
--I/home/richard/workspace/Tait/CppCourse/MatrixOperator2
+-I/home/richard/workspace/CppCourse/CppCourse/MatrixOperator2
 -I/usr/include/c++/11
 -I/usr/include/x86_64-linux-gnu/c++/11
 -I/usr/include/c++/11/backward

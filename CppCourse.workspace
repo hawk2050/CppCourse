@@ -1,94 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="CppCourse" Database="" Version="10000">
-  <Project Name="DigitClass" Path="DigitClass/DigitClass.project" Active="No"/>
-  <Project Name="MatrixOperator2" Path="MatrixOperator2/MatrixOperator2.project" Active="No"/>
   <Project Name="MatrixOperator3" Path="MatrixOperator3/MatrixOperator3.project" Active="No"/>
   <Project Name="MatrixParenthesis" Path="MatrixParenthesis/MatrixParenthesis.project" Active="No"/>
   <Project Name="stringName" Path="stringName/stringName.project" Active="No"/>
-  <Project Name="StringInitial" Path="StringInitial/StringInitial.project" Active="No"/>
-  <Project Name="StringFirstLast" Path="StringFirstLast/StringFirstLast.project" Active="No"/>
   <Project Name="StringNamesArray" Path="StringNamesArray/StringNamesArray.project" Active="No"/>
-  <Project Name="MatrixStdArray" Path="MatrixStdArray/MatrixStdArray.project" Active="No"/>
   <Project Name="MatrixSave" Path="MatrixSave/MatrixSave.project" Active="No"/>
-  <Project Name="MatrixObject" Path="MatrixObject/MatrixObject.project" Active="No"/>
-  <Project Name="MatrixObject2" Path="MatrixObject2/MatrixObject2.project" Active="No"/>
   <Project Name="MatrixObject3" Path="MatrixObject3/MatrixObject3.project" Active="No"/>
-  <Project Name="MatrixThrow1" Path="MatrixThrow1/MatrixThrow1.project" Active="No"/>
-  <Project Name="MatrixThrow2" Path="MatrixThrow2/MatrixThrow2.project" Active="No"/>
   <Project Name="MatrixThrow3" Path="MatrixThrow3/MatrixThrow3.project" Active="No"/>
   <Project Name="MatrixAssert" Path="MatrixAssert/MatrixAssert.project" Active="No"/>
   <Project Name="TemplatesSquare" Path="TemplatesSquare/TemplatesSquare.project" Active="No"/>
   <Project Name="MatrixTemplate" Path="MatrixTemplate/MatrixTemplate.project" Active="No"/>
   <Project Name="MatrixTemplateParameter" Path="MatrixTemplateParameter/MatrixTemplateParameter.project" Active="No"/>
-  <Project Name="MatrixNamespace" Path="MatrixNamespace/MatrixNamespace.project" Active="No"/>
-  <Project Name="Casting" Path="Casting/Casting.project" Active="No"/>
   <Project Name="Typeid" Path="Typeid/Typeid.project" Active="No"/>
   <Project Name="MatrixTraits" Path="MatrixTraits/MatrixTraits.project" Active="No"/>
   <Project Name="MatrixNewSyntax" Path="MatrixNewSyntax/MatrixNewSyntax.project" Active="No"/>
   <Project Name="MatrixCpp11" Path="MatrixAutoType/MatrixAutoType.project" Active="No"/>
-  <Project Name="MatrixApply" Path="MatrixApply/MatrixApply.project" Active="Yes"/>
+  <Project Name="MatrixApply" Path="MatrixApply/MatrixApply.project" Active="No"/>
+  <Project Name="Thread2" Path="Thread2/Thread2.project" Active="No"/>
+  <Project Name="ThreadLock2" Path="ThreadLock2/ThreadLock2.project" Active="No"/>
+  <Project Name="RegEx_Name" Path="RegEx_Name/RegEx_Name.project" Active="No"/>
+  <Project Name="MatrixCpp14" Path="MatrixCpp14/MatrixCpp14.project" Active="No"/>
+  <Project Name="DateClass" Path="DateClass/DateClass.project" Active="Yes"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug">
       <Environment/>
-      <Project Name="DigitClass" ConfigName="Debug"/>
-      <Project Name="MatrixOperator2" ConfigName="Debug"/>
       <Project Name="MatrixOperator3" ConfigName="Debug"/>
       <Project Name="MatrixParenthesis" ConfigName="Debug"/>
       <Project Name="stringName" ConfigName="Debug"/>
-      <Project Name="StringInitial" ConfigName="Debug"/>
-      <Project Name="StringFirstLast" ConfigName="Debug"/>
       <Project Name="StringNamesArray" ConfigName="Debug"/>
-      <Project Name="MatrixStdArray" ConfigName="Debug"/>
       <Project Name="MatrixSave" ConfigName="Debug"/>
-      <Project Name="MatrixObject" ConfigName="Debug"/>
-      <Project Name="MatrixObject2" ConfigName="Debug"/>
       <Project Name="MatrixObject3" ConfigName="Debug"/>
-      <Project Name="MatrixThrow1" ConfigName="Debug"/>
-      <Project Name="MatrixThrow2" ConfigName="Debug"/>
       <Project Name="MatrixThrow3" ConfigName="Debug"/>
       <Project Name="MatrixAssert" ConfigName="Debug"/>
       <Project Name="TemplatesSquare" ConfigName="Debug"/>
       <Project Name="MatrixTemplate" ConfigName="Debug"/>
       <Project Name="MatrixTemplateParameter" ConfigName="Debug"/>
-      <Project Name="MatrixNamespace" ConfigName="Debug"/>
-      <Project Name="Casting" ConfigName="Debug"/>
       <Project Name="Typeid" ConfigName="Debug"/>
       <Project Name="MatrixTraits" ConfigName="Debug"/>
       <Project Name="MatrixNewSyntax" ConfigName="Debug"/>
       <Project Name="MatrixCpp11" ConfigName="Debug"/>
       <Project Name="MatrixInitializerList" ConfigName="Debug"/>
       <Project Name="MatrixApply" ConfigName="Debug"/>
+      <Project Name="Thread2" ConfigName="Debug"/>
+      <Project Name="ThreadLock2" ConfigName="Debug"/>
+      <Project Name="RegEx_Name" ConfigName="Debug"/>
+      <Project Name="MatrixCpp14" ConfigName="Debug"/>
+      <Project Name="DateClass" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release">
       <Environment/>
-      <Project Name="DigitClass" ConfigName="Release"/>
-      <Project Name="MatrixOperator2" ConfigName="Release"/>
       <Project Name="MatrixOperator3" ConfigName="Release"/>
       <Project Name="MatrixParenthesis" ConfigName="Release"/>
       <Project Name="stringName" ConfigName="Release"/>
-      <Project Name="StringInitial" ConfigName="Release"/>
-      <Project Name="StringFirstLast" ConfigName="Release"/>
       <Project Name="StringNamesArray" ConfigName="Release"/>
-      <Project Name="MatrixStdArray" ConfigName="Release"/>
       <Project Name="MatrixSave" ConfigName="Release"/>
-      <Project Name="MatrixObject" ConfigName="Release"/>
-      <Project Name="MatrixObject2" ConfigName="Release"/>
       <Project Name="MatrixObject3" ConfigName="Release"/>
-      <Project Name="MatrixThrow1" ConfigName="Release"/>
-      <Project Name="MatrixThrow2" ConfigName="Release"/>
       <Project Name="MatrixThrow3" ConfigName="Release"/>
       <Project Name="MatrixAssert" ConfigName="Release"/>
       <Project Name="TemplatesSquare" ConfigName="Release"/>
       <Project Name="MatrixTemplate" ConfigName="Release"/>
       <Project Name="MatrixTemplateParameter" ConfigName="Release"/>
-      <Project Name="MatrixNamespace" ConfigName="Release"/>
-      <Project Name="Casting" ConfigName="Release"/>
       <Project Name="Typeid" ConfigName="Release"/>
       <Project Name="MatrixTraits" ConfigName="Release"/>
       <Project Name="MatrixNewSyntax" ConfigName="Release"/>
       <Project Name="MatrixCpp11" ConfigName="Release"/>
       <Project Name="MatrixInitializerList" ConfigName="Release"/>
       <Project Name="MatrixApply" ConfigName="Release"/>
+      <Project Name="Thread2" ConfigName="Release"/>
+      <Project Name="ThreadLock2" ConfigName="Release"/>
+      <Project Name="RegEx_Name" ConfigName="Release"/>
+      <Project Name="MatrixCpp14" ConfigName="Release"/>
+      <Project Name="DateClass" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
