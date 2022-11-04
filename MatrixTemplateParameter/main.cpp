@@ -333,7 +333,7 @@ int main()
     Matrix<double,3,3> m2{{2.5,3.5,4.6},{4.2,5.3,6.4},{2.1,6.7,9.8}};
     cout << "m2 (double matrix) is : " << m2;
     
-    //m2.clear();
+    m2.clear();
     //cout << "m2 (clear matrix) is : " << m2;
     
     Matrix<double,2,3> m3{{2.5,3.5,4.6},{4.2,5.3,6.4}};

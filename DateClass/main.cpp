@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cassert>
+#include <set>
 
 #include "dateclass.h"
 
@@ -53,14 +54,44 @@ day Date::operator-(const Date& otherdate) const
 bool Date::operator<(const Date& otherdate) const
 {
     bool result = false;
-    if(*this->m_year < otherdate.m_year)
+    if(this->m_year < otherdate.m_year)
     {
         return true;
     }
-    else
+    
+    if(this->m_year > otherdate.m_year)
     {
-        if
+        return false;
     }
+    
+    /*If we get to here then the years are the same, so now compare
+     * based on the months
+     * */
+     if(this->m_month < otherdate.m_month)
+    {
+        return true;
+    }
+    
+    if(this->m_month > otherdate.m_month)
+    {
+        return false;
+    }
+    
+    /*If we get to here then the months are the same, so now compare
+     * based on the day
+     * */
+     if(this->m_day < otherdate.m_day)
+    {
+        return true;
+    }
+    
+    if(this->m_day > otherdate.m_month)
+    {
+        return false;
+    }
+    
+    return result;
+     
 }
 
 Date Date::operator+(const uint32_t add_days) const
@@ -134,17 +165,36 @@ std::ostream& operator<<(std::ostream& os, const Calendar& m)
 int main()
 {
     const Date d1(23,6,2022);
-    const Date d2(23,6,2023);
+    const Date d2(12,2,2023);
+    
+    std::set<Date> dates;
+    
+    dates.insert(d1);
+    dates.insert(d2);
     
     std::cout << "Date difference between << " << d1 << " and " << d2 << " is : " << (d2 - d1) << "days\n";
     
-    const Date d3(1,1,1994);
+    const Date d3(1,1,1999);
     const Date d4(14,9,1994);
+    const Date d6(14,8,1994);
+    const Date d7(15,8,1994);
+    
+    dates.insert(d3);
+    dates.insert(d4);
+    dates.insert(d6);
+    dates.insert(d7);
+    
     uint32_t days_diff = (d4-d3);
     std::cout << "Date difference between " << d3 << " and " << d4 << " is : " << days_diff << "days\n";
     
     Date d5;
     d5 = d3 + days_diff;
     std::cout << "Date d3 + " << days_diff << " days " << "is " << d5 << '\n';
+    
+    /*Using auto don't even have to declare a reverse_iterator!*/
+    for(auto t_it = dates.rbegin(); t_it != dates.rend(); ++t_it)
+    {
+        std::cout << *t_it << " ";
+    }
     
 }
