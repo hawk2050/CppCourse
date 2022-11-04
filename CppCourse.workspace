@@ -10,7 +10,7 @@
   <Project Name="MatrixAssert" Path="MatrixAssert/MatrixAssert.project" Active="No"/>
   <Project Name="TemplatesSquare" Path="TemplatesSquare/TemplatesSquare.project" Active="No"/>
   <Project Name="MatrixTemplate" Path="MatrixTemplate/MatrixTemplate.project" Active="No"/>
-  <Project Name="MatrixTemplateParameter" Path="MatrixTemplateParameter/MatrixTemplateParameter.project" Active="No"/>
+  <Project Name="MatrixTemplateParameter" Path="MatrixTemplateParameter/MatrixTemplateParameter.project" Active="Yes"/>
   <Project Name="Typeid" Path="Typeid/Typeid.project" Active="No"/>
   <Project Name="MatrixTraits" Path="MatrixTraits/MatrixTraits.project" Active="No"/>
   <Project Name="MatrixNewSyntax" Path="MatrixNewSyntax/MatrixNewSyntax.project" Active="No"/>
@@ -20,7 +20,15 @@
   <Project Name="ThreadLock2" Path="ThreadLock2/ThreadLock2.project" Active="No"/>
   <Project Name="RegEx_Name" Path="RegEx_Name/RegEx_Name.project" Active="No"/>
   <Project Name="MatrixCpp14" Path="MatrixCpp14/MatrixCpp14.project" Active="No"/>
-  <Project Name="DateClass" Path="DateClass/DateClass.project" Active="Yes"/>
+  <Project Name="DateClass" Path="DateClass/DateClass.project" Active="No"/>
+  <Project Name="STLVectorNames" Path="STLVectorNames/STLVectorNames.project" Active="No"/>
+  <Project Name="STLVectorNamesIterator" Path="STLVectorNamesIterator/STLVectorNamesIterator.project" Active="No"/>
+  <Project Name="STLNamesList" Path="STLNamesList/STLNamesList.project" Active="No"/>
+  <Project Name="STLNamesSet" Path="STLNamesSet/STLNamesSet.project" Active="No"/>
+  <Project Name="STLNamesMap" Path="STLNamesMap/STLNamesMap.project" Active="No"/>
+  <Project Name="NameAgeUpper" Path="NameAgeUpper/NameAgeUpper.project" Active="No"/>
+  <Project Name="NumberSort" Path="NumberSort/NumberSort.project" Active="No"/>
+  <Project Name="MatrixApplyTransform" Path="MatrixApplyTransform/MatrixApplyTransform.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug">
       <Environment/>
@@ -46,6 +54,14 @@
       <Project Name="RegEx_Name" ConfigName="Debug"/>
       <Project Name="MatrixCpp14" ConfigName="Debug"/>
       <Project Name="DateClass" ConfigName="Debug"/>
+      <Project Name="STLVectorNames" ConfigName="Debug"/>
+      <Project Name="STLVectorNamesIterator" ConfigName="Debug"/>
+      <Project Name="STLNamesList" ConfigName="Debug"/>
+      <Project Name="STLNamesSet" ConfigName="Debug"/>
+      <Project Name="STLNamesMap" ConfigName="Debug"/>
+      <Project Name="NameAgeUpper" ConfigName="Debug"/>
+      <Project Name="NumberSort" ConfigName="Debug"/>
+      <Project Name="MatrixApplyTransform" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release">
       <Environment/>
@@ -71,6 +87,14 @@
       <Project Name="RegEx_Name" ConfigName="Release"/>
       <Project Name="MatrixCpp14" ConfigName="Release"/>
       <Project Name="DateClass" ConfigName="Release"/>
+      <Project Name="STLVectorNames" ConfigName="Release"/>
+      <Project Name="STLVectorNamesIterator" ConfigName="Release"/>
+      <Project Name="STLNamesList" ConfigName="Release"/>
+      <Project Name="STLNamesSet" ConfigName="Release"/>
+      <Project Name="STLNamesMap" ConfigName="Release"/>
+      <Project Name="NameAgeUpper" ConfigName="Release"/>
+      <Project Name="NumberSort" ConfigName="Release"/>
+      <Project Name="MatrixApplyTransform" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

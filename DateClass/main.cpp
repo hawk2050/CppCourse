@@ -3,13 +3,14 @@
 
 #include "dateclass.h"
 
-Date::Date(uint16_t day, uint16_t month, uint16_t year):
-    m_day(day),
-    m_month(month),
-    m_year(year)
+Date::Date(day days, month months, year years):
+    m_day(days),
+    m_month(months),
+    m_year(years),
+    m_calendar(Calendar::Gregorian)
 {
-    assert(day <= 31);
-    assert(month <= 12);
+    assert(days <= 31);
+    assert(months <= 12);
 }
 
 Date::Date():
@@ -20,32 +21,12 @@ Date::Date():
     
 }
 
-void Date::setDay(uint16_t day)
-{
-    
-}
-
-uint16_t Date::getDay()
-{
-    return m_day;
-}
-
-uint16_t Date::getMonth()
-{
-    return m_month;
-}
-
-uint16_t Date::getYear()
-{
-    return m_year;
-}
-
 /*Overload the subtraction operator for the Matrix class*/
-uint32_t Date::operator-(const Date& otherdate) const
+day Date::operator-(const Date& otherdate) const
 {
     //uint32_t result;
-    uint16_t sum_month_lhs = 0;
-    uint16_t sum_month_rhs = 0;
+    day sum_month_lhs = 0;
+    day sum_month_rhs = 0;
     
     for(size_t j = 0; j < this->m_month; ++j)
     {
@@ -66,13 +47,29 @@ uint32_t Date::operator-(const Date& otherdate) const
     return (total_days_lhs - total_days_rhs);
 }
 
-Date Date::operator+(const uint32_t days) const
+/*Need this if we want to use sets to create an ordered set
+ * of dates
+ * */
+bool Date::operator<(const Date& otherdate) const
+{
+    bool result = false;
+    if(*this->m_year < otherdate.m_year)
+    {
+        return true;
+    }
+    else
+    {
+        if
+    }
+}
+
+Date Date::operator+(const uint32_t add_days) const
 {
     Date temp;
-    uint16_t year;
-    uint16_t month;
-    uint16_t day;
-    uint16_t sum_month_lhs = 0;
+    year years;
+    month months;
+    day days;
+    day sum_month_lhs = 0;
     
     for(size_t j = 0; j < this->m_month; ++j)
     {
@@ -80,36 +77,56 @@ Date Date::operator+(const uint32_t days) const
     }
     
     uint32_t total_days_orig = this->m_year * DAYS_IN_YEAR + sum_month_lhs + this->m_day;
-    uint32_t total_days_sum = total_days_orig + days;
+    uint32_t total_days_sum = total_days_orig + add_days;
     
-    year = total_days_sum / DAYS_IN_YEAR;
+    years = total_days_sum / DAYS_IN_YEAR;
     //std::cout << "year = " << year;
     //uint16_t days_diff = (total_days_sum - year * DAYS_IN_YEAR);
-    uint16_t days_diff = total_days_sum % DAYS_IN_YEAR;
+    day days_diff = (total_days_sum % DAYS_IN_YEAR);
     //std::cout << "days_diff = " << days_diff;
     
-    uint16_t sum_month_days = 0;
+    day sum_month_days = 0;
     for(size_t j = 0; j < DaysInMonth.size(); ++j)
     {
         sum_month_days += DaysInMonth[j];
         if(sum_month_days >= days_diff)
         {
-            month = j;
+            months = j;
             break;
         }
     }
     
-    day = sum_month_days -days_diff;
-    temp.m_year = year;
-    temp.m_month = month;
-    temp.m_day = day;
+    days = sum_month_days -days_diff;
+    temp.m_year = years;
+    temp.m_month = months;
+    temp.m_day = days;
     
     return temp;
 }
 
 std::ostream& operator<<(std::ostream& os, const Date& m)
 {
-    os << "[" << m.m_day << "/" << m.m_month << "/" << m.m_year << "]" ;
+    os << "[" << m.m_day << "/" << m.m_month << "/" << m.m_year << "]" << "(" << m.m_calendar << ")\n" ;
+    return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Calendar& m)
+{
+    switch(m)
+    {
+        case Calendar::Gregorian:
+            os << "Gregorian";
+            break;
+        case Calendar::Julian:
+            os << "Julian";
+            break;
+        case Calendar::Chinese:
+            os << "Chinese";
+            break;
+        default:
+        os << "Unknown";
+        
+    }
     return os;
 }
 

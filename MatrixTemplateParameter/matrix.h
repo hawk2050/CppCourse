@@ -52,7 +52,7 @@ public:
     T getElement(unsigned row, unsigned col) const;
     void init(T val);
     /*Zero the fixed size matrix*/
-    void empty();
+    void clear();
     
     /*Define the matrix exception as an inner class of Matrix, should be in the public section as it needs to
      * be available to the outside world*/

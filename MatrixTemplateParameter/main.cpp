@@ -46,7 +46,7 @@ Matrix<T,ROW,COL>::Matrix():
     ++m_count; //Keep track of the number of instances of this class that have been instantiated.
     m_print_count = 0;
     //std::cout << "Creating instance " << m_count << std::endl;
-    empty();
+    clear();
 }
 
 template <class T, unsigned ROW, unsigned COL>
@@ -155,14 +155,19 @@ void Matrix<T,ROW,COL>::init(T val)
 
 /*Zero the fixed size matrix*/
 template <class T, unsigned ROW, unsigned COL>
-void Matrix<T,ROW,COL>::empty()
+void Matrix<T,ROW,COL>::clear()
 {
-    for(size_t j=0; j< ROW; j++)
+    /*for(size_t j=0; j< ROW; j++)
     {
         for(size_t k=0; k< COL; k++)
         {
             m_matrix[j][k] = 0;
         }
+    }*/
+    
+    for(auto& row : m_matrix)
+    {
+        std::fill(std::begin(row), std::end(row),0);
     }
 }
 
@@ -327,6 +332,10 @@ int main()
     
     Matrix<double,3,3> m2{{2.5,3.5,4.6},{4.2,5.3,6.4},{2.1,6.7,9.8}};
     cout << "m2 (double matrix) is : " << m2;
+    
+    //m2.clear();
+    //cout << "m2 (clear matrix) is : " << m2;
+    
     Matrix<double,2,3> m3{{2.5,3.5,4.6},{4.2,5.3,6.4}};
     
     try
